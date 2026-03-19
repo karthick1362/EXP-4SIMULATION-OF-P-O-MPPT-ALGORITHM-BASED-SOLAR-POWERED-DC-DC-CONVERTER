@@ -61,6 +61,27 @@ Advantages:
 8. Record input and output parameters.
 
 ---
+## P&O MPPT Algorithm:
+function [P, D] = fcn(V, I, StepSize)
+% P&O MPPT Algorithm
+% Inputs:
+% V - Voltage
+% I - Current
+% StepSize - Step size for perturbation
+%
+% Outputs:
+% P - Power
+% D - Duty cycle
+
+% Initialization
+persistent Pprev Vprev Dprev
+
+if isempty(Pprev)
+    Pprev = 0;
+    Vprev = 0;
+    Dprev = 0.5;
+end
+
 
 ## Tabulation
 | Irradiance (W/m²) | Vin (V) | Iin (A) | Ppv (W) | Vo (V) | Io (A) | Po (W) |
